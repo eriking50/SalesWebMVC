@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using SalesWebMvc.Services;
 using SalesWebMvc.Models;
 using SalesWebMvc.Data;
 
@@ -41,6 +42,7 @@ namespace SalesWebMvc
                     options.UseMySql(Configuration.GetConnectionString("SalesWebMvcContext"), builder => builder.MigrationsAssembly("SalesWebMvc")));
             
             services.AddScoped<SeedingService>();
+            services.AddScoped<SellerService>();
         }
 
 
